@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Data/Data.iml" filepath="$PROJECT_DIR$/Data/Data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JHelp/JHelp.iml" filepath="$PROJECT_DIR$/JHelp/JHelp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OLDDict/OLDDict.iml" filepath="$PROJECT_DIR$/OLDDict/OLDDict.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OLDServer/OLDServer.iml" filepath="$PROJECT_DIR$/OLDServer/OLDServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/savkin.iml" filepath="$PROJECT_DIR$/savkin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
+    </modules>
+  </component>
+</project>
