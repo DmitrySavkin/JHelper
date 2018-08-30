@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<dictinary>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><dictinary>
     <definition name="alphabet">
         The set of the characters
     </definition>
     <definition name="grammar">
         The regular
     </definition>
-</dictinary>
+<definition name="A">B</definition><definition name="A">B</definition><definition name="A">B</definition><definition name="MyDefinition">MyDescription</definition><definition name="A">B</definition><definition name="MyDefinition">MyDescription</definition><definition name="MyDefinition">MyDescription</definition><definition name="A">B</definition><definition name="MyDefinition">MyDescription</definition><definition name="MyDefinition">MyDescription</definition><definition name="A">B</definition></dictinary>

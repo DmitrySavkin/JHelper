@@ -37,7 +37,8 @@ public class DocumentReader {
     private static DocumentReader documentReader;
     private final String TAG = "definition";
     private final String fileName = "dictinary.xml";
-    public final File file = new File(ClassLoader.getSystemResource(fileName).getFile());
+    private final File file = new File(ClassLoader.getSystemResource(fileName).getFile());
+
 
     private DocumentReader() {}
     /**
