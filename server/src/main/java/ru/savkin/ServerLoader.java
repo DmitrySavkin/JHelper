@@ -4,10 +4,20 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ *
+ * The server of system
+ * @version  1.1
+ * @author  dmitrysavkin
+ *
+ */
 public final class ServerLoader  {
 
     private  ServerSocket  serverSocket;
 
+    /**
+     * inits the server.
+     */
     public  void init() {
         try {
             serverSocket =  new ServerSocket(8888);
@@ -32,12 +42,8 @@ public final class ServerLoader  {
     }
 
     protected void end() throws IOException {
-
             serverSocket.close();
-
     }
 
-    public static void main(String[] args) {
-       new ServerLoader().init();
-    }
+
 }
