@@ -10,6 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * This class provides the avaible to mske dialogs to manipulate the terms.
+ * @version  1.0
+ * @author dmitrysavkin
+ */
 public abstract class DefinitionWindow extends JDialog {
 
 
@@ -19,6 +24,11 @@ public abstract class DefinitionWindow extends JDialog {
     private JEditorPane editorPane;
     private JTextField defField;
 
+    /**
+     * Creates new dialog
+     * @param frame the main window
+     * @param title the name of current dialog
+     */
     public DefinitionWindow(Window frame, String title) {
         this.frame = frame;
         setTitle(title);
@@ -26,6 +36,9 @@ public abstract class DefinitionWindow extends JDialog {
 
     }
 
+    /**
+     * Provides and shows the dialog with defaults settings;
+     */
     public final void  setWindows() {
         JLabel definition = new JLabel("Definition");
         defField = new JTextField(40);
@@ -78,24 +91,46 @@ public abstract class DefinitionWindow extends JDialog {
         pack();
     }
 
+    /**
+     * Action by click OK Button
+     */
     protected abstract void okMethod();
 
+    /**
+     * Makes the dialog visible
+     */
     public void init() {
         setVisible(true);
     }
 
+    /**
+     * Gets the layout
+     * @return the gridbagcontraints with user settings
+     */
     public GridBagConstraints getConstraints() {
         return constraints;
     }
 
+    /**
+     * Gets describing field
+     * @return the java components
+     */
     public JEditorPane getEditorPane() {
         return editorPane;
     }
 
+    /**
+     * Get definition field. The title of terms
+     * @return the java components
+     */
     public JTextField getDefField() {
         return defField;
     }
 
+    /**
+     * Gets main frame
+     * @return the java components
+     */
     public Window getFrame() {
         return frame;
     }

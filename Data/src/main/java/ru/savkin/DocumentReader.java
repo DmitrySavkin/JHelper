@@ -21,6 +21,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The class resposible for modify and reading the data from file. As file is choose a xml file with follow structure
+ * {@code    <definition name="definition">
+    The meaning
+     </definition>
+    }
+
+ *@author dmitry savkin
+ * @version  1.0
+ */
 public class DocumentReader {
 
 
@@ -84,16 +94,19 @@ public class DocumentReader {
     }
 
 
-
-
-    public void addData(String name, String def) {
+    /**
+     * Adds new term to  xml file
+     * @param def the definition
+     * @param desc the description of term
+     */
+    public void addData(String def, String desc) {
 
         try {
             Document doc = getContent();
             Element root = doc.getDocumentElement();
             Element defTag = doc.createElement("definition");
-            defTag.setAttribute("name", name);
-            defTag.setTextContent(def);
+            defTag.setAttribute("name", def);
+            defTag.setTextContent(desc);
             root.appendChild(defTag);
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -116,11 +129,14 @@ public class DocumentReader {
         }
     }
 
+    /**
+     * Removes the term by name
+     * @param name the term
+     */
     public void removeDefinition(String name) {
         try {
             Document doc = getContent();
             NodeList l = doc.getElementsByTagName(TAG);
-
             for (int i = 0; i < l.getLength(); i++) {
                 if (l.item(i).getAttributes().getNamedItem("name").getTextContent().equalsIgnoreCase(name)) {
                     Node node = l.item(i);
@@ -153,7 +169,10 @@ public class DocumentReader {
     }
 
 
-
+    /**
+     * Gets content of dictinary
+     * @return the content of dictinary
+     */
     public static final DocumentReader getDocumentReader() {
         if (documentReader == null) {
             documentReader = new DocumentReader();
@@ -162,12 +181,22 @@ public class DocumentReader {
     }
 
 
+
+    /**
+     * Edit the data
+     * @param definition the definition {@code ru.savkin.Definition}
+     */
     public void addData(Definition definition) {
 
         addData(definition.getDefinition(), definition.getDescription());
     }
 
 
+    /**
+     * Edit the data
+     * @param def the name of term
+     * @param desc the descriprion(meaning) of term
+     */
     public void editData(String def, String desc) {
         try {
             Document doc = getContent();

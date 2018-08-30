@@ -10,6 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * The main frame of system. This is GUI to use the information system.
+ * The user can find the term, remove it.
+ * Each term is editable.
+ * The user can also add a new term to a system.
+ * @author dmitrysavkin
+ * @version  1.1
+ *
+ */
 public final class Window extends JFrame {
 
 
@@ -189,26 +198,50 @@ public final class Window extends JFrame {
     }
 
 
+    /**
+     * Gets the definition field(search field)
+     * @return the java components
+     */
     public JTextField getDefField() {
         return defField;
     }
 
+    /**
+     * Gets the description field(search field)
+     * @return the java components
+     */
     public JEditorPane getTextArea() {
         return textArea;
     }
 
+    /**
+     * Gets the window to add new term
+     * @return the java components
+     */
     public DefinitionWindow getAddDefinitionWindow() {
         return addDefinitionWindow;
     }
 
+    /**
+     * Gets the window to edit existing term
+     * @return the java components
+     */
     public DefinitionWindow getEditDefinitionWindow() {
         return editDefinitionWindow;
     }
 
+    /**
+     * Gets list of term contains into the system
+     * @return the terms
+     */
     public List<Definition> getDefinitionList() {
         return definitionList;
     }
 
+    /**
+     * Entry points
+     * @param args not nessessary for this version
+     */
     public static void main(String[] args) {
         new Window();
     }
