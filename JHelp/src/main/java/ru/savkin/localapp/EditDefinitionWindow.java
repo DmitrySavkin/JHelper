@@ -1,5 +1,7 @@
 package ru.savkin.localapp;
 
+import ru.savkin.API;
+import ru.savkin.Definition;
 import ru.savkin.DocumentReader;
 
 public final class EditDefinitionWindow extends DefinitionWindow {
@@ -22,8 +24,10 @@ public final class EditDefinitionWindow extends DefinitionWindow {
 
     @Override
     protected  void okMethod() {
-      //  super.getDocumentReader().editDefinition();
-       // super.setVisible(false);
+      String def =  getFrame().getEditDefinitionWindow().getDefField().getText();
+      String desc = getFrame().getEditDefinitionWindow().getEditorPane().getText();
+        Definition definition = new Definition(def, desc);
+      API.edit(definition);
     }
 
 }

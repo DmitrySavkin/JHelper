@@ -1,5 +1,6 @@
 package ru.savkin.localapp;
 
+import ru.savkin.API;
 import ru.savkin.Definition;
 import ru.savkin.DocumentReader;
 
@@ -119,9 +120,9 @@ public final class Window extends JFrame {
         });
         remove.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int r  = JOptionPane.showConfirmDialog(parent, "Вы хотите удалить?", "Удаление", JOptionPane.YES_NO_OPTION);
+                int r  = JOptionPane.showConfirmDialog(parent, "Do you want to remove this definition?", "Removing", JOptionPane.YES_NO_OPTION);
                 if (r == JOptionPane.YES_OPTION) {
-
+                  remove();
                 }
             }
         });
@@ -138,6 +139,13 @@ public final class Window extends JFrame {
                 editDefinitionWindow.init();
             }
         });
+    }
+
+    private void remove() {
+        Definition definition = new Definition(defField.getText(), textArea.getText());
+        API.remove(definition);
+        defField.setText("");
+        textArea.setText("");
     }
 
     private void upperPanel() {
@@ -171,24 +179,12 @@ public final class Window extends JFrame {
 
     private final void getResult() {
 
-        if (defField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(parent, "No definition", "Error",JOptionPane.ERROR_MESSAGE);
-            throw  new IllegalArgumentException("No definition");
-        }
-        textArea.setText("");
-        boolean finded = false;
+       Definition definition =  API.getSearchResult(defField.getText());
 
-        for (Definition definition : definitionList) {
-            if (definition.getDefinition().equalsIgnoreCase(defField.getText())) {
-                textArea.setText(definition.getDescription());
-                finded = true;
-                break;
-            }
-        }
-
-        if  (!finded) {
+        if  (definition == null) {
             JOptionPane.showMessageDialog(parent, "No matches", "Error",JOptionPane.ERROR_MESSAGE);
-
+        } else {
+            textArea.setText(definition.getDescription());
         }
     }
 

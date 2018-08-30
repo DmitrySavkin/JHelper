@@ -116,7 +116,7 @@ public class DocumentReader {
         }
     }
 
-    public void removeNumber(String name) {
+    public void removeDefinition(String name) {
         try {
             Document doc = getContent();
             NodeList l = doc.getElementsByTagName(TAG);
@@ -155,19 +155,55 @@ public class DocumentReader {
 
 
     public static final DocumentReader getDocumentReader() {
-
         if (documentReader == null) {
             documentReader = new DocumentReader();
         }
         return documentReader;
     }
+
+
     public void addData(Definition definition) {
 
         addData(definition.getDefinition(), definition.getDescription());
     }
 
 
-    public void editData(Definition definition) {
+    public void editData(String def, String desc) {
+        try {
+            Document doc = getContent();
+            NodeList l = doc.getElementsByTagName(TAG);
+            for (int i = 0; i < l.getLength(); i++) {
+                if (l.item(i).getAttributes().getNamedItem("name").getTextContent().equalsIgnoreCase(def)) {
+                    Node node = l.item(i);
+                    node.setTextContent(desc);
+                    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                    Transformer transformer = transformerFactory.newTransformer();
+                    DOMSource domSource = new DOMSource(doc);
+                    StreamResult streamResult = new StreamResult(new File(file.getCanonicalPath()));
+                    transformer.transform(domSource, streamResult);
+                    break;
+                }
 
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    public void editData(Definition definition) {
+            editData(definition.getDefinition(), definition.getDescription());
+    }
+
 }

@@ -8,7 +8,7 @@ import ru.savkin.DocumentReader;
 public final class AddDefinitionWindow extends  DefinitionWindow {
 
     public AddDefinitionWindow(Window frame) {
-        super(frame, "Добавить термин");
+        super(frame, "Add new definition");
         setWindows();
     }
 

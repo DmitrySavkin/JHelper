@@ -14,7 +14,7 @@ public final class API {
     }
 
     public static final void remove(Definition definition) {
-        documentReader.removeNumber(definition.getDefinition());
+        documentReader.removeDefinition(definition.getDefinition());
     }
 
     public static final void add(Definition definition) {

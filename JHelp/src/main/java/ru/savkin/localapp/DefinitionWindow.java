@@ -20,21 +20,19 @@ public abstract class DefinitionWindow extends JDialog {
     private JTextField defField;
 
     public DefinitionWindow(Window frame, String title) {
-       // super(parent);
         this.frame = frame;
-
         setTitle(title);
         super.setLayout(new GridBagLayout());
 
     }
 
     public final void  setWindows() {
-        JLabel definition = new JLabel("Определение");
+        JLabel definition = new JLabel("Definition");
         defField = new JTextField(40);
-        JLabel describe = new JLabel("Описание");
+        JLabel describe = new JLabel("Describe");
         editorPane = new  JEditorPane();
-        JButton ok = new JButton("Добавить");
-        JButton cancel = new JButton("Отмена");
+        JButton ok = new JButton("Ok");
+        JButton cancel = new JButton("Cancel");
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.gridx = 0;
         constraints.gridy = 0;
