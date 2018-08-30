@@ -1,18 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><dictinary>
+<?xml version="1.0" encoding="UTF-8" ?>
+<dictinary>
     <definition name="alphabet">
         The set of the characters
     </definition>
     <definition name="grammar">
         The regular
     </definition>
-<definition name="EE">&lt;html&gt;
-  &lt;head&gt;
-    
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p style="margin-top: 0"&gt;
-      asssc!W
-    &lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</definition></dictinary>
+</dictinary>

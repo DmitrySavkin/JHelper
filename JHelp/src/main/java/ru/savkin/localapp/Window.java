@@ -2,8 +2,6 @@ package ru.savkin.localapp;
 
 import ru.savkin.API;
 import ru.savkin.Definition;
-import ru.savkin.DocumentReader;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -238,11 +236,6 @@ public final class Window extends JFrame {
         return definitionList;
     }
 
-    /**
-     * Entry points
-     * @param args not nessessary for this version
-     */
-    public static void main(String[] args) {
-        new Window();
-    }
+
+
 }

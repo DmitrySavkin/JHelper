@@ -1,0 +1,8 @@
+ru/savkin/Definition.class
+ru/savkin/Error.class
+ru/savkin/Data.class
+ru/savkin/SocketBean.class
+ru/savkin/ClientListener$1.class
+ru/savkin/Client.class
+ru/savkin/ClientListener.class
+ru/savkin/ClientSent.class
