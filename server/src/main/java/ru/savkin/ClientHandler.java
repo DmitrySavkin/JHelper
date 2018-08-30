@@ -1,9 +1,14 @@
 package ru.savkin;
 
-import javax.swing.*;
+
 import java.io.*;
 import java.net.Socket;
 
+/**
+ * The one thead for each user can manipulate with user's query
+ * @version  1.1.
+ * @author  dmitry savkin.
+ */
 public class ClientHandler extends Thread {
 
     private final Socket client;
@@ -36,6 +41,10 @@ public class ClientHandler extends Thread {
     }
 
 
+    /**
+     * Gets socket
+     * @return the current socket
+     */
     public Socket getClient() {
         return client;
     }
