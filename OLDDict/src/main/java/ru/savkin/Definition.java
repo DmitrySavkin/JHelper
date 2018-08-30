@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @author dm
  */
+@Deprecated
 public class Definition  {
   
     public static ArrayList definition = new ArrayList();

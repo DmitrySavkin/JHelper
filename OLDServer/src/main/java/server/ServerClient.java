@@ -11,6 +11,7 @@ import java.net.ServerSocket;
  *
  * @author dm
  */
+@Deprecated
 public class ServerClient implements Runnable {
 
     int p;

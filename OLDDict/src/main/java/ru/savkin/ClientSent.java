@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author dm
  */
+@Deprecated
 public class ClientSent {
 
     static String term;

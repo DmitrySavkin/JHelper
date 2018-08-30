@@ -6,7 +6,11 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-
+/**
+ * The class is been developing.
+ * The class provides the method to connect with server.
+ * @author  dmitrysavkin
+ */
 public class ClientLoader {
 
     private static Socket socket;

@@ -15,6 +15,7 @@ import java.util.ArrayList;
  *
  * @author dm
  */
+@Deprecated
 class ServerDB {
 
     static String query;

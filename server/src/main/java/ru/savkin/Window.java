@@ -3,12 +3,22 @@ package ru.savkin;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The class provides the method to use the server.
+ * The user can send the query from {@Window } can recieve the definition from server
+ * @version  1.1
+ * @author  dmitry savkin
+ */
 public class Window extends JFrame {
 
 
-    private ServerLoader serverLoader;
+    private final ServerLoader serverLoader;
 
+    /**
+     * Creates main frame for server
+     */
     public Window() {
+
         serverLoader = new ServerLoader();
         setTitle("Server");
         setSize(500,500);

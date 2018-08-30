@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author dm
  */
+@Deprecated
 public class Error {
 
     public final static String FILE_ERROR = "File isn't choose";

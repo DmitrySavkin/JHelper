@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author dmitriy
  */
+@Deprecated
 public class ServerListener implements ActionListener {
 
     public static String s = " ";

@@ -15,6 +15,7 @@ import javax.swing.*;
  *
  * @author dmitriy
  */
+@Deprecated
 public class Client extends JFrame {
 
     public static JFrame frame;

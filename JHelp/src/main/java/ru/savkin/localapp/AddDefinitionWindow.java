@@ -7,6 +7,10 @@ import ru.savkin.DocumentReader;
 
 public final class AddDefinitionWindow extends  DefinitionWindow {
 
+    /**
+     * Creates new dialog to manipulate the existing frame
+     * @param frame the main frame
+     */
     public AddDefinitionWindow(Window frame) {
         super(frame, "Add new definition");
         setWindows();

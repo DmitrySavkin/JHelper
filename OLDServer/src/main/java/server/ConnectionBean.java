@@ -10,6 +10,7 @@ import java.sql.Connection;
  *
  * @author dm
  */
+@Deprecated
 public class ConnectionBean {
     private static  Connection c;
 

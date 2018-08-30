@@ -16,6 +16,7 @@ import java.net.Socket;
  *
  * @author dm
  */
+@Deprecated
 class ServerThread extends Thread {
 
     static ServerSocket ss = null;

@@ -4,10 +4,18 @@ import ru.savkin.API;
 import ru.savkin.Definition;
 import ru.savkin.DocumentReader;
 
+/**
+ * This is the dialog to edit the term.
+ * @version  1.0
+ * @author dmitrysavkin
+ */
 public final class EditDefinitionWindow extends DefinitionWindow {
 
 
-
+    /**
+     * Creates new dialog to manipulate the existing frame
+     * @param frame the main frame
+     */
     public EditDefinitionWindow(Window frame) {
         super(frame, "Редактировать термин");
         setWindows();

@@ -24,6 +24,7 @@ import javax.swing.JTextField;
  *
  * @author dmitriy
  */
+@Deprecated
 public class Server extends JFrame {
 
     public static int i = 0;

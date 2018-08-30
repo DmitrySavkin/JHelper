@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author dm
  */
+@Deprecated
 public class Error {
 
     public final static String USER_ERROR="User not correct";

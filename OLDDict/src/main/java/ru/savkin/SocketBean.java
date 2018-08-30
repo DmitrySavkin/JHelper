@@ -10,6 +10,7 @@ import java.net.Socket;
  *
  * @author dm
  */
+@Deprecated
 public class SocketBean {
  private static Socket sock;   
 

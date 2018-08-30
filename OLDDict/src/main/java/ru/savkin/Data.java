@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  *
  * @author dmitriy
  */
+@Deprecated
 public class Data {
 
     static String s2;

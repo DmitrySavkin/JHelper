@@ -15,6 +15,7 @@ import javax.swing.*;
  *
  * @author dmitriy
  */
+@Deprecated
 public class ClientListener implements ActionListener {
 
     ClientSent cs;
