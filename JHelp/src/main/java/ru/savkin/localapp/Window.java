@@ -1,5 +1,7 @@
 package ru.savkin.localapp;
 
+import javafx.scene.layout.Border;
+import javafx.scene.layout.Pane;
 import ru.savkin.API;
 import ru.savkin.Definition;
 import javax.swing.*;
@@ -21,19 +23,18 @@ public final class Window extends JFrame {
 
 
     private  List<Definition> definitionList;
-    private final GridBagConstraints constraints = new GridBagConstraints();
+
     private  DefinitionWindow addDefinitionWindow;
     private DefinitionWindow editDefinitionWindow;
     private JTextField defField;
-    private JEditorPane textArea;
+    private JTextArea textArea;
     private Window parent;
-
 
     public Window() {
 
         this.parent = this;
-        super.setLayout(new GridBagLayout());
-
+        setLayout(new GridBagLayout());
+        //setLayout(new BorderLayout());
         upperPanel();
         leftPanel();
         rightPanel();
@@ -42,80 +43,65 @@ public final class Window extends JFrame {
         setVisible(true);
     }
 
-    private void rightPanel() {
-      /*
-        JButton buttonBold = new JButton("B");
-        JButton buttonItalic = new JButton("I");
-        JButton buttonUnderline = new JButton("U");
-        buttonBold.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        buttonItalic.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        buttonUnderline.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+    private  void upperPanel() {
         JPanel upper = new JPanel();
-        Border etched = BorderFactory.createEtchedBorder();
-        upper.setBorder(etched);
-        upper.setLayout(new GridLayout(1,3));
-        upper.add(buttonBold);
-        upper.add(buttonItalic);
-        upper.add(buttonUnderline);
-        constraints.gridx = 1;
-        constraints.gridy = 0;
-        constraints.gridheight = 10;
-        constraints.gridwidth = 4;
-        constraints.insets = new Insets(1,30,0,30);
-        add(upper, constraints);
-        */
-        textArea = new JEditorPane();
-        textArea.setSize(100,Short.MAX_VALUE * 10000);
-        textArea.setContentType("text/html");
-        textArea.setPreferredSize(new Dimension(300,300));
-        constraints.gridx = 1;
-        constraints.gridy = 5;
-        constraints.gridheight = 110;
-        constraints.gridwidth = 40;
-        constraints.insets = new Insets(5,30,105,30);
-        add(textArea,constraints);
+        upper.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        JLabel definion = new JLabel(" Definition");
+        defField = new JTextField();
+        defField.setPreferredSize(new Dimension(650,21));
+        JButton searchButton = new JButton("Search");
+        searchButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                getResult();
+            }
+        });
+        c.fill =  GridBagConstraints.HORIZONTAL;
+        c.gridx  = 1;
+        c.gridy = 0;
+        c.weightx = 1;
+        c.gridwidth = 1;
+        upper.add(definion, c);
+        c.gridx = 2;
+        c.weightx = 36;
+        c.gridwidth = 2;
+        c.insets = new Insets(0,13,0,10);
 
-
+        upper.add(defField, c);
+        c.gridx = 22;
+        c.gridwidth = 3;
+        c.weightx = 0.5;
+        upper.add(searchButton, c);
+        c.gridx = 0;
+        c.gridy = 0;
+        getContentPane().add(upper, c);
     }
 
-    private void leftPanel() {
+    private  void leftPanel() {
         int startPosition = 8;
+        JPanel left = new JPanel();
+        left.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
         JButton add = new JButton("Add");
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = startPosition;
-        constraints.gridx = 0;
-        add(add, constraints);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridy = startPosition;
+        c.gridx = 0;
+        left.add(add, c);
         final JButton remove = new JButton("Remove");
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = startPosition + 1;
-        constraints.gridx = 0;
-        add(remove, constraints);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridy = startPosition + 1;
+        c.gridx = 0;
+        left.add(remove, c);
         final JButton edit = new JButton("Edit");
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = startPosition + 2;
-        constraints.gridx = 0;
-        add(edit, constraints);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridy = startPosition + 2;
+        c.gridx = 0;
+        left.add(edit, c);
         JButton settings = new JButton("Settings");
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = startPosition + 10;
-        constraints.gridx = 0;
-        add(settings, constraints);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridy = startPosition + 10;
+        c.gridx = 0;
+        left.add(settings, c);
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -129,7 +115,7 @@ public final class Window extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int r  = JOptionPane.showConfirmDialog(parent, "Do you want to remove this definition?", "Removing", JOptionPane.YES_NO_OPTION);
                 if (r == JOptionPane.YES_OPTION) {
-                  remove();
+                    //remove();
                 }
             }
         });
@@ -146,42 +132,35 @@ public final class Window extends JFrame {
                 editDefinitionWindow.init();
             }
         });
+
+        JPanel right = new JPanel();
+        //right.setLayout(new GridBagLayout());
+
+        textArea = new JTextArea();
+       // textArea.setSize(100,Short.MAX_VALUE * 10000);
+        textArea.setMinimumSize(new Dimension(750,700));
+        textArea.setPreferredSize(new Dimension(750,700));
+
+        c.gridx = 4;
+        int resizing = 160;
+        c.gridwidth = 60;
+        c.gridheight = resizing;
+        c.weightx = 60;
+        c.weighty = resizing;
+        c.gridx = resizing;
+        c.gridy = 1;
+        c.insets = new Insets(0,0,5,5);
+        left.add(textArea, c);
+        c.gridx =0;
+        c.gridy =1;
+        getContentPane().add(left, c);
     }
 
-    private void remove() {
-        Definition definition = new Definition(defField.getText(), textArea.getText());
-        API.remove(definition);
-        defField.setText("");
-        textArea.setText("");
-    }
+    private void rightPanel() {
+        //JTextField fgv = new JTextField(45);
 
-    private void upperPanel() {
-
-        JLabel definion = new JLabel(" Definition");
-        defField = new JTextField(45);
-        defField.setScrollOffset(5);
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = 0;
-        constraints.gridx = 0;
-        constraints.insets = new Insets(5,30,5,10);
-        add(definion, constraints);
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = 0;
-        constraints.gridx = 1;
-        add(defField, constraints);
-        JButton searchButton = new JButton("Search");
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridy = 0;
-        constraints.gridx = 3;
-        constraints.insets = new Insets(5,10,5,30);
-        add(searchButton, constraints);
-        searchButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                getResult();
-
-            }
-         });
-
+       // add(right, BorderLayout.CENTER);
+        System.out.println("r");
     }
 
     private final void getResult() {
@@ -208,7 +187,7 @@ public final class Window extends JFrame {
      * Gets the description field(search field)
      * @return the java components
      */
-    public JEditorPane getTextArea() {
+    public JTextArea getTextArea() {
         return textArea;
     }
 
